@@ -39,16 +39,48 @@ public class MyLinkedList
         
     }
 
+    public boolean addLast(Object newItem){
+
+        
+        
+        ListNode temp=head;
+        int oldSize=temp.size();
+        while(temp.getNext() != null){
+            temp=temp.getNext();
+        }
+        temp.set(newItem);
 
 
+        if(oldSize!=head.size())
+            return true;
+        else
+            return false;
+
+        
+    }
 
 
+    public boolean addFirst(Object newItem){
+
+        
+        
+        ListNode temp=head;
+        int firstSize=temp.size();
+
+        
+        while(temp.getNext() != null){
+            temp=temp.getNext();
+        }
+        temp.setNext(newItem);
 
 
+        if(firstSize!=head.size())
+            return true;
+        else
+            return false;
 
-
-
-
+        
+    }
 
 
 
