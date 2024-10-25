@@ -1,102 +1,102 @@
 public class MyLinkedList
 {
     private ListNode head;
-	private ListNode size ;
+	private int size ;
 
 	public MyLinkedList()
-	{
+	{// start MyLinkedList
 		head = null; 
 		size = 0;
-	} // end Constructor
+	} // end MyLinkedList
 
-    public int size(){
+    public int size(){// start size
         return size;
-    }
-    public boolean isEmpty(){
+    }// end size
+
+    public boolean isEmpty(){// start isEmpty
         if (head== null || size==0)
             return true;
         else
             return false;
-    }
+    }// end isEmpty
 
-    public boolean add(Object newItem){
+    public boolean add(Object newItem){// start add
 
         
         
         ListNode temp=head;
-        int ogSize=temp.size();
-        while(temp.getNext() != null){
+        int ogSize=size;
+        while(temp.getNext() != null){// start while
             temp=temp.getNext();
-        }
-        temp.set(newItem);
+            size++;
+        }// end while
+        temp.setNext(new ListNode(newItem,null));
 
 
-        if(ogSize!=head.size())
+        if(ogSize!=size)
             return true;
         else
             return false;
 
         
-    }
+    }// end add
 
-    public boolean addLast(Object newItem){
-
-        
-        
-        ListNode temp=head;
-        int oldSize=temp.size();
-        while(temp.getNext() != null){
-            temp=temp.getNext();
-        }
-        temp.set(newItem);
-
-
-        if(oldSize!=head.size())
-            return true;
+    public boolean addLast(Object newItem){// start addLast
+        boolean possible = true;
+        if(possible== true){// start if
+            add(newItem);
+            possible= true;
+        }// end if 
         else
-            return false;
-
-        
-    }
-
-
-    public boolean addFirst(Object newItem){
-
+            possible= false;
+        return possible;
         
         
-        ListNode temp=head;
-        int firstSize=temp.size();
+    }// end addLast
+
+
+    public boolean addFirst(Object newItem){// start addFirst
+        boolean possible = true;
+        if(possible== true){// start if
+            head= new ListNode(newItem,null);
+            possible= true;
+            size++;
+        }// end if
+        else 
+            possible= false;
+
+        return possible;
 
         
-        while(temp.getNext() != null){
-            temp=temp.getNext();
-        }
-        temp.setNext(newItem);
+    }// end addFirst
 
 
-        if(firstSize!=head.size())
-            return true;
-        else
-            return false;
+    public Object get(int i){// start get
 
-        
-    }
+        ListNode temp = head;
+        if (i < 0 || i >= size) 
+            throw new IndexOutOfBoundsException();
+        else{// start else
+            for(int x =0;x<i;x++)
+                temp= temp.getNext();
+        }// end else  
+            
+        return temp.getValue();
 
+    }// end get
 
-
-
-    public String toString(){
+    public String toString(){//start toString
         String result="";
         int loco=1;
         ListNode temp = head;
         while (temp != null)
-        {
+        {// start while
             result += loco +":"+temp.getValue()+"\n";
             temp = temp.getNext();
             loco++;
-        }
+        }// end while
         return result;
         
-    }
+    }// end toString
 
-}
+}// end class
