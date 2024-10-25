@@ -59,18 +59,9 @@ public class MyLinkedList
 
 
     public boolean addFirst(Object newItem){// start addFirst
-        boolean possible = true;
-        if(possible== true){// start if
-            head= new ListNode(newItem,null);
-            possible= true;
-            size++;
-        }// end if
-        else 
-            possible= false;
-
-        return possible;
-
-        
+        head= new ListNode(newItem,null);
+        size++;
+        return true;
     }// end addFirst
 
 
