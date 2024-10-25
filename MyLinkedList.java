@@ -21,17 +21,20 @@ public class MyLinkedList
     }// end isEmpty
 
     public boolean add(Object newItem){// start add
-
-        
-        
-        ListNode temp=head;
         int ogSize=size;
-        while(temp.getNext() != null){// start while
-            temp=temp.getNext();
-            size++;
-        }// end while
-        temp.setNext(new ListNode(newItem,null));
-
+        // check if empty
+        // add the special way to an empty list
+        if (size == 0)
+            head= new ListNode(newItem,null);
+        else{
+            
+            ListNode temp=head;
+            while(temp.getNext() != null){// start while
+                temp=temp.getNext();
+                size++;
+            }// end while
+            temp.setNext(new ListNode(newItem,null));
+        }
 
         if(ogSize!=size)
             return true;
