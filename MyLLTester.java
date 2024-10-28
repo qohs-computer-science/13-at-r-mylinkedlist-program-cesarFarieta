@@ -6,6 +6,8 @@ public class MyLLTester
     System.out.println(happy.isEmpty());
     happy.add("testingAdd");
     happy.addLast("testingAddLast");
+    happy.addFirst("testingAddFirst");
+    happy.set(5,"testingSet");
     System.out.println(happy.toString());
 
     System.out.println(happy.get(2));

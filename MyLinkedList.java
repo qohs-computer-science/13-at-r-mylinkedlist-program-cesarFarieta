@@ -57,12 +57,51 @@ public class MyLinkedList
         
     }// end addLast
 
+    public Object remove(int i){// start remove
+        if (i < 0 || i >= size) 
+            throw new IndexOutOfBoundsException();
+        else if(i==0)
+            removeFirst(); 
+        else
+            for(int x =0;x<i;x++)
+                head = head.getValue();
+            ListNode temp = head;
+
+    }// end remove
+
+    public Object removeFirst(){// start remove First
+        ListNode temp = head;
+        if (size==0) 
+            return null;
+        head= head.getNext();
+        Object returnVal=temp.getValue(); 
+        temp.setNext(null);
+
+        return returnVal;
+    }// end removeFirst
 
     public boolean addFirst(Object newItem){// start addFirst
         head= new ListNode(newItem,null);
         size++;
         return true;
     }// end addFirst
+
+
+    public Object set(int i, Object newValue){// start set
+        ListNode temp = head;
+
+        if (i < 0 || i >= size) 
+            throw new IndexOutOfBoundsException();
+        else{// start else
+            for(int x =0;x<i;x++)
+                temp= temp.getNext();
+
+        
+        Object reValue =temp.getValue(); 
+        temp.setValue(newValue);
+        return reValue;
+
+    }// end set
 
 
     public Object get(int i){// start get
