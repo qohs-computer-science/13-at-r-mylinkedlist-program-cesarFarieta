@@ -61,13 +61,33 @@ public class MyLinkedList
         if (i < 0 || i >= size) 
             throw new IndexOutOfBoundsException();
         else if(i==0)
-            removeFirst(); 
-        else
-            for(int x =0;x<i;x++)
-                head = head.getValue();
-            ListNode temp = head;
+            return removeFirst(); 
+        else{
 
+            ListNode temp = head;
+            for(int x =0;x<i-1;x++)
+                temp = temp.getNext();
+            ListNode temp2 = temp.getNext();
+            temp.setNext(temp2.getNext());
+            Object returnValue= temp2.getValue();
+            temp2.setNext(null);
+            size--;
+            return returnValue;
+        }
     }// end remove
+
+
+    public Object removeLast(){
+        if(size==0)
+            return null;
+        ListNode temp = head;
+        while(temp.getNext().getNext()!=null){
+            temp = temp.getNext();
+        }
+        Object returnValue= temp.getNext().getValue();
+        temp.setNext(null);
+        return returnValue;
+    }
 
     public Object removeFirst(){// start remove First
         ListNode temp = head;
@@ -97,9 +117,9 @@ public class MyLinkedList
                 temp= temp.getNext();
 
         
-        Object reValue =temp.getValue(); 
-        temp.setValue(newValue);
-        return reValue;
+            Object reValue =temp.getValue(); 
+            temp.setValue(newValue);
+            return reValue;
 
     }// end set
 

@@ -11,7 +11,13 @@ public class MyLLTester
     System.out.println(happy.toString());
 
     System.out.println(happy.get(2));
-
+    
+    happy.removeFirst();
+    System.out.println("After First Remove \n"+happy);
+    happy.remove(3);
+    System.out.println("After Remove\n"+happy);
+    happy.removeLast();
+    System.out.println("After Remove last\n"+happy);
   } // end main
   
 } // end class
